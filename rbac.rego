@@ -30,9 +30,9 @@ allow {
 }
 
 # Allow bob to do anything
-#allow {
-#	input.user == "bob"
-#}
+allow {
+	input.user == "bob"
+}
 
 # you can ignore this rule, it's simply here to create a dependency
 # to another rego policy file, so we can demonstate how to work with
@@ -47,7 +47,7 @@ allow {
 allow {
 	# Find permissions for the user.
 	some permission
-	user_is_granted_ok[permission]
+	user_is_granted[permission]
 
 	# Check if the permission permits the action.
 	input.action == permission.action
@@ -88,7 +88,7 @@ user_is_guest {
 
 # user_is_granted is a set of permissions for the user identified in the request.
 # The `permission` will be contained if the set `user_is_granted` for every...
-user_is_granted_ok[permission] {
+user_is_granted[permission] {
 	some i, j
 
 	# `role` assigned an element of the user_roles for this user...
