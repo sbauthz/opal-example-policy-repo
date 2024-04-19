@@ -33,7 +33,7 @@ allow {
 #allow {
 #	input.user == "bob"
 #}
-
+#
 # you can ignore this rule, it's simply here to create a dependency
 # to another rego policy file, so we can demonstate how to work with
 # an explicit manifest file (force order of policy loading).
