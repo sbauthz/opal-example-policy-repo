@@ -31,14 +31,6 @@ allow {
 	user_is_admin
 }
 
-allow {
-    response := http.send({
-        "method": "GET",
-        "url": "https://run.mocky.io/v3/296687cb-11c1-490e-984c-9b0ebb5c3616"
-    })
-    parsed_response := json.unmarshal(response.body)
-    parsed_response.can == "true"
-}
 # Allow bob to do anything
 #allow {
 #	input.user == "bob"
